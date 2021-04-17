@@ -1,23 +1,35 @@
-<section class="jumbotron text-center">
+<section class="jumbotron text-center"
+  style="background-image: url('<%= asset_path('banner.jpeg') %>');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;">
   <div class="container">
-    <h1>Album example</h1>
-    <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-    <p>
-      <a href="#" class="btn btn-primary my-2">Main call to action</a>
-      <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-    </p>
+    <h1 class="text-white text-shadow font-weight-bold mb-5">The Aficionado</h1>
+    <blockquote class="blockquote">
+      <p class="mb-0 text-white text-shadow">Now is our time. It's our time to chase rainbows and build castles in the sky. It's our time to create a life that we love. Because someday, it will no longer be our time.</p>
+      <footer class="blockquote-footer"> Shawn Anderson</footer>
+    </blockquote>
   </div>
 </section>
 
 <div class="album py-5 bg-light">
   <div class="container">
+    <% if user_signed_in? %>
+      <div class="float-right">
+        <%= link_to new_article_path,
+          class: "btn btn-sm btn-outline-secondary" do %>
+          <i class="fas fa-plus"></i>
+          New Post
+        <% end %>
+      </div>
+    <% end %>
+
     <div class="row">
       <% @articles.each do |article| %>
         <div class="col-12">
           <strong>
             <%= article.title %>
           </strong>
-
         </div>
       <% end %>
     </div>

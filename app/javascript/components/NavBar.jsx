@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+import Button from "react-bootstrap/Button";
 
-export default function NavBar(props) {
+function NavBar({isUserSignedIn}) {
   const [show, setShow] = useState(false);
 
   return (
@@ -9,15 +11,29 @@ export default function NavBar(props) {
         <div className="container">
           <div className="row">
             <div className="col-sm-8 col-md-7 py-4">
-              <h4 className="text-white">About</h4>
-              <p className="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+              <h4 className="text-white">About the challenge</h4>
+              <p className="text-muted">You are expected to build a small blog using Ruby on Rails (and optionally React).</p>
+              { isUserSignedIn &&
+                <Button variant="outline-secondary" size="sm">
+                  LogOut
+                </Button>
+              }
             </div>
             <div className="col-sm-4 offset-md-1 py-4">
-              <h4 className="text-white">Contact</h4>
+              <h4 className="text-white">by Jose Vega</h4>
               <ul className="list-unstyled">
-                <li><a href="#" className="text-white">Follow on Twitter</a></li>
-                <li><a href="#" className="text-white">Like on Facebook</a></li>
-                <li><a href="#" className="text-white">Email me</a></li>
+                <li><a href="https://github.com/jocvegar" className="text-white" target="_blank">
+                  Github
+                  <i className="ml-2 fab fa-github"></i>
+                </a></li>
+                <li><a href="https://linkedin.com/in/jose-carlos-vega/" className="text-white" target="_blank">
+                  Linkedin
+                  <i className="ml-2 fab fa-linkedin-in"></i>
+                </a></li>
+                <li><a href="mailto:jocvegar.com" className="text-white">
+                  Email
+                  <i className="ml-2 far fa-envelope"></i>
+                </a></li>
               </ul>
             </div>
           </div>
@@ -26,9 +42,10 @@ export default function NavBar(props) {
       <div className="navbar navbar-dark bg-dark shadow-sm">
         <div className="container d-flex justify-content-between">
           <a href="#" className="navbar-brand d-flex align-items-center">
-            <strong>Album</strong>
+            <strong>Aficionado</strong>
+            <i className="ml-2 far fa-clock"></i>
           </a>
-          <button onClick={() => setShow(!show)} className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <button onClick={() => setShow(!show)} className={`navbar-toggler ${show ? 'collapsed' : ''}`} type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
         </div>
@@ -36,3 +53,10 @@ export default function NavBar(props) {
     </div>
   );
 }
+
+
+NavBar.propTypes = {
+  isUserSignedIn: PropTypes.bool,
+};
+
+export default NavBar

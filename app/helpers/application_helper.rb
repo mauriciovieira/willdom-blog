@@ -6,7 +6,8 @@ module ApplicationHelper
 	def flash_messages
 		flash.each do |msg_type, message|
 			concat(
-				content_tag(:div, id: "flash-wrapper", class: "container-fluid", style: "padding-top:0.5rem;") do
+				content_tag(:div, id: "flash-wrapper", class: "container-fluid",
+					style: "padding-top:0.5rem;margin-top: 10px;position: fixed;") do
 					concat(
 						content_tag(:div, message, class: "alert alert-dismissible #{bootstrap_class_for(msg_type.to_sym)}", role: "alert") do
 							concat content_tag(:span, message.html_safe, class: 'alert-message')
