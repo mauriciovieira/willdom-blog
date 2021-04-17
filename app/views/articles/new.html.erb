@@ -1,5 +1,24 @@
-<h1>New Article</h1>
-
-<%= render 'form', article: @article %>
-
-<%= link_to 'Back', articles_path %>
+<div id="new-article" class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+          <li class="breadcrumb-item">
+            <a href="/"><span class="fas fa-home"></span></a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            New Article
+          </li>
+        </ol>
+      </nav>
+      <div class="row">
+				<div class="col">
+					<h2 class="display-4 text-center">
+						New Article
+					</h2>
+				</div>
+      </div>
+      <%= render 'form', article: @article, accion_verb: "Save" %>
+    </div>
+  </div>
+</div>

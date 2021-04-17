@@ -11,11 +11,13 @@ function NavBar({isUserSignedIn, logOutPath}) {
     axios.defaults.headers.common['X-CSRF-TOKEN'] = token
     axios({
       method: "DELETE",
-      url: "/users/sign_out.json",
+      url: `${logOutPath}.json`,
     })
     .then(() => window.location = "/")
     .catch(error => console.log("error", error))
   }
+
+  const goToHome = () => window.location = "/";
 
   return (
     <div>
@@ -53,7 +55,7 @@ function NavBar({isUserSignedIn, logOutPath}) {
       </div>
       <div className="navbar navbar-dark bg-dark shadow-sm">
         <div className="container d-flex justify-content-between">
-          <a href="#" className="navbar-brand d-flex align-items-center">
+          <a href="#" onClick={goToHome} className="navbar-brand d-flex align-items-center">
             <strong>Aficionado</strong>
             <i className="ml-2 far fa-clock"></i>
           </a>
@@ -65,7 +67,6 @@ function NavBar({isUserSignedIn, logOutPath}) {
     </div>
   );
 }
-
 
 NavBar.propTypes = {
   isUserSignedIn: PropTypes.bool,

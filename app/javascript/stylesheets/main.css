@@ -39,3 +39,178 @@ footer p {
 .text-shadow {
   text-shadow: 0px 1px 1px #000;
 }
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: #f5f8fb;
+  border-radius: 0.5rem;
+}
+
+.breadcrumb-item {
+  display: flex;
+}
+
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #66799e;
+  content: "/";
+}
+
+.breadcrumb-item.active {
+  color: #ffffff;
+}
+
+.breadcrumb-item {
+  font-size: 0.75rem;
+}
+
+.breadcrumb-item, .breadcrumb-item a {
+    color: #66799e;
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+
+@media (min-width: 576px) {
+    .breadcrumb-item, .breadcrumb-item a {
+        font-size: 0.875rem;
+    }
+}
+
+.breadcrumb-item.active {
+    font-weight: 400;
+}
+
+.breadcrumb-item + .breadcrumb-item:before {
+    content: "\f101";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #66799e;
+}
+
+.breadcrumb-transparent {
+    background: transparent;
+    padding: 0;
+}
+
+.breadcrumb-primary {
+    background: #262B40;
+}
+
+.breadcrumb-primary .breadcrumb-item.active {
+    color: #ffffff;
+}
+
+.breadcrumb-primary.breadcrumb-transparent {
+    background: transparent;
+}
+
+.breadcrumb-primary.breadcrumb-transparent .breadcrumb-item.active {
+    color: #262B40;
+}
+
+.breadcrumb-secondary {
+    background: #F8BD7A;
+}
+
+.breadcrumb-secondary .breadcrumb-item.active {
+    color: #ffffff;
+}
+
+.breadcrumb-secondary.breadcrumb-transparent {
+    background: transparent;
+}
+
+.breadcrumb-secondary.breadcrumb-transparent .breadcrumb-item.active {
+    color: #F8BD7A;
+}
+
+.breadcrumb-tertiary {
+    background: #1B998B;
+}
+
+.breadcrumb-tertiary .breadcrumb-item.active {
+    color: #ffffff;
+}
+
+.breadcrumb-tertiary.breadcrumb-transparent {
+    background: transparent;
+}
+
+.breadcrumb-tertiary.breadcrumb-transparent .breadcrumb-item.active {
+    color: #1B998B;
+}
+
+.breadcrumb-quaternary {
+    background: #0948B3;
+}
+
+.breadcrumb-quaternary .breadcrumb-item.active {
+    color: #ffffff;
+}
+
+.breadcrumb-quaternary.breadcrumb-transparent {
+    background: transparent;
+}
+
+.breadcrumb-quaternary.breadcrumb-transparent .breadcrumb-item.active {
+    color: #0948B3;
+}
+
+.breadcrumb-primary-app {
+    background: #EBF4F6;
+}
+
+.breadcrumb-primary-app .breadcrumb-item.active {
+    color: #ffffff;
+}
+
+.breadcrumb-primary-app.breadcrumb-transparent {
+    background: transparent;
+}
+
+.breadcrumb-primary-app.breadcrumb-transparent .breadcrumb-item.active {
+    color: #EBF4F6;
+}
+
+.breadcrumb-secondary-app {
+    background: #424AA0;
+}
+
+.breadcrumb-secondary-app .breadcrumb-item.active {
+    color: #ffffff;
+}
+
+.breadcrumb-secondary-app.breadcrumb-transparent {
+    background: transparent;
+}
+
+.breadcrumb-secondary-app.breadcrumb-transparent .breadcrumb-item.active {
+    color: #424AA0;
+}
+
+
+.breadcrumb-dark {
+    background: #262B40;
+}
+
+.breadcrumb-dark .breadcrumb-item.active {
+    color: #ffffff;
+}
+
+.breadcrumb-dark.breadcrumb-transparent {
+    background: transparent;
+}
+
+.breadcrumb-dark.breadcrumb-transparent .breadcrumb-item.active {
+    color: #262B40;
+}
+
