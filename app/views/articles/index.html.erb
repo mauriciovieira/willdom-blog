@@ -23,15 +23,8 @@
         <% end %>
       </div>
     <% end %>
-
-    <div class="row">
-      <% @articles.each do |article| %>
-        <div class="col-12">
-          <strong>
-            <%= article.title %>
-          </strong>
-        </div>
-      <% end %>
-    </div>
+    <br/>
+    <br/>
+    <%= react_component("Articles") %>
   </div>
 </div>

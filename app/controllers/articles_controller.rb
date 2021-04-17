@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: %i[ index show ]
   # GET /articles or /articles.json
   def index
-    @articles = Article.all.order("created_at DESC")
+    @articles = Article.all.with_attached_image.order("created_at DESC")
   end
 
   # GET /articles/1 or /articles/1.json
