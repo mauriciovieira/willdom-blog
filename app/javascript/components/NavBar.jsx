@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
+import axios from 'axios'
 
-function NavBar({isUserSignedIn}) {
+function NavBar({isUserSignedIn, logOutPath}) {
   const [show, setShow] = useState(false);
+
+  const logOut = () => {
+    const token = document.querySelector('[name=csrf-token]').content
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = token
+    axios({
+      method: "DELETE",
+      url: "/users/sign_out.json",
+    })
+    .then(() => window.location = "/")
+    .catch(error => console.log("error", error))
+  }
 
   return (
     <div>
@@ -14,7 +26,7 @@ function NavBar({isUserSignedIn}) {
               <h4 className="text-white">About the challenge</h4>
               <p className="text-muted">You are expected to build a small blog using Ruby on Rails (and optionally React).</p>
               { isUserSignedIn &&
-                <Button variant="outline-secondary" size="sm">
+                <Button variant="outline-secondary" size="sm" onClick={logOut}>
                   LogOut
                 </Button>
               }
