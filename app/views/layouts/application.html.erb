@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>WillDom Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="WillDom Blog">
+    <meta name="author" content="Jose V.">
+    <meta name="description" content="WillDom Blog">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WillDom Blog">
+    <meta property="og:description" content="WillDom Blog">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,6 +18,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/navbar" %>
+    <main role="main">
+      <%= flash_messages %>
+      <%= yield %>
+    </main>
   </body>
 </html>
