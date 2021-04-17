@@ -21,6 +21,14 @@
       <%= label_tag :content, "Content", class: "form-label" %>
       <%= f.text_area :content, class: "form-control", size: "20x8" %>
     </div>
+
+    <%= content_tag :div, class: "col-12 col-md-8 offset-md-2 my-3 text-center" do %>
+      <%= image_tag @article.image.variant({
+        resize_to_limit: [280, 280]
+      }),
+      class: "img-thumbnail" %>
+    <% end if @article.image.attached?%>
+
     <div class="col-12 col-md-8 offset-md-2 my-3">
       <%= label_tag :image, "Image", class: "form-label" %>
       <%= f.file_field :image, class: "form-control" %>

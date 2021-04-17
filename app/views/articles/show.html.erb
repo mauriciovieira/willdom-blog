@@ -14,15 +14,20 @@
 
       <%= content_tag :div, class: "row" do %>
 				<div class="col">
-					<h4 class="mb-3 pb-3">
-						<%= link_to edit_article_path(@article),
-							class: "float-right btn btn-sm btn-outline-dark" do %>
-							<i class="fas fa-cog"></i>
-							Edit
+					<div class="btn-group float-right" role="group">
+						<%= link_to root_path,
+							class: "btn btn-sm btn-outline-dark" do %>
+							<i class="fas fa-chevron-left"></i>
+							Back
 						<% end %>
-					</h4>
+						<%= link_to edit_article_path(@article),
+							class: "btn btn-sm btn-outline-dark" do %>
+							<i class="fas fa-cog"></i>
+						  Edit
+						<% end if current_user %>
+					</div>
 				</div>
-      <% end if current_user %>
+			<% end %>
 
       <div class="row">
 				<div class="col-12">

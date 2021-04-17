@@ -11,6 +11,19 @@
           </li>
         </ol>
       </nav>
+
+      <%= content_tag :div, class: "row" do %>
+				<div class="col">
+					<div class="btn-group float-right" role="group">
+						<%= link_to root_path,
+							class: "btn btn-sm btn-outline-dark" do %>
+								<i class="fas fa-chevron-left"></i>
+								Back
+						<% end %>
+					</div>
+				</div>
+			<% end if current_user %>
+
       <div class="row">
 				<div class="col">
 					<h2 class="display-4 text-center">
