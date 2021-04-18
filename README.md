@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Hodinkee
+## Willdom
 
-Things you may want to cover:
+`CODE CHALLENGE`
 
-* Ruby version
+### The Challenge
+- Build a small blog using Ruby on Rails
 
-* System dependencies
+View the project [here @ https://willdom-blog.herokuapp.com/](https://willdom-blog.herokuapp.com/)
 
-* Configuration
+View the source code [here @ https://github.com/jocvegar/willdom-blog](https://github.com/jocvegar/willdom-blog)
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
