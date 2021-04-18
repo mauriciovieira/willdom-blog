@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
         format.html { redirect_to root_path, notice: "Article was successfully created." }
         format.json { render :show, status: :created, location: @article }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { broadcast_errors @article, article_params }
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
         format.html { redirect_to @article, notice: "Article was successfully updated." }
         format.json { render :show, status: :ok, location: @article }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { broadcast_errors @article, article_params }
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
