@@ -7,4 +7,8 @@ class Article < ApplicationRecord
 	# IMAGE
 	has_one_attached :image
 	validates :image, content_type: [:png, :jpg, :jpeg]
+
+	def should_generate_new_friendly_id?
+		title_changed? || super
+	end
 end
