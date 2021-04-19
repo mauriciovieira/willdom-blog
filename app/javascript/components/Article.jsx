@@ -18,7 +18,7 @@ export default function Article({ article }) {
 
         <div
           className="col-12 col-md-6 my-md-5 my-1"
-          style={{ maxHeight: "20em" }}>
+          style={{ maxHeight: "20em", overflow: "hidden" }}>
           <div className="text-center">
             <Image
               src={article.urlToImage}
