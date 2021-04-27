@@ -9,27 +9,46 @@ name: Ruby
 
 on:
   push:
-    branches: [ master ]
+    branches: [ staging ]
   pull_request:
-    branches: [ master ]
+    branches: [ staging ]
 
 jobs:
-  test:
-
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby-version: ['2.6.6']
+
+    services:
+      postgres:
+        image: postgres:11.5
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
     # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
     # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
+      uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        ruby-version: 2.6.6
+    - name: Install PostgreSQL 11 client
+      run: |
+        sudo apt-get -yqq install libpq-dev
+    - name: Install dependencies
+      env:
+        PGHOST: localhost
+        PGUSER: postgres
+        RAILS_ENV: test
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        yarn install
+        bin/rails db:migrate:reset
     - name: Run tests
+      env:
+        PGHOST: localhost
+        PGUSER: postgres
+        RAILS_ENV: test
+        GH_COMMIT: $(git rev-parse --short HEAD)
       run: bundle exec rake
